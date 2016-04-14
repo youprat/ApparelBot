@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ApparelBot</string>
+    <string name="greeting">Hi!</string>
+    <string name="inquiry">What are you looking for?</string>
+    <string name="title_activity_carousel">Carousel</string>
+    <string name="action_settings">Settings</string>
+</resources>

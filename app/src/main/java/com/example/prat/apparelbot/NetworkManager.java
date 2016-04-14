@@ -23,7 +23,6 @@ import java.net.URL;
 class NetworkManager extends AsyncTask<String, Integer, JSONObject> {
     private static final String DEBUG_TAG = "Debug";
     private String flickrApiKey= "a91ebdd4d2f59465429f5e7667b1ef9c";
-    private String secret = "c6ba2d764efb4584";
 
     String queryUrl = "https://api.flickr.com/services/rest/?method=flickr.photos.search&safe_search=1&extras=url_m";
     String perPage = "&per_page=10";
@@ -50,6 +49,7 @@ class NetworkManager extends AsyncTask<String, Integer, JSONObject> {
 
     String buildQueryString(String searchText, boolean isTag, int pageNumber){
         String query;
+        searchText = searchText.replaceAll("\\s+", "+");
         if(isTag){
             query = queryUrl + page + pageNumber + perPage + format + apiKey + flickrApiKey + tag + searchText + apiKey + flickrApiKey;
         }
@@ -84,8 +84,6 @@ class NetworkManager extends AsyncTask<String, Integer, JSONObject> {
             } catch (JSONException e) {
 
             }
-            // Makes sure that the InputStream is closed after the app is
-            // finished using it.
             if (is != null) {
                 is.close();
             }
@@ -119,6 +117,7 @@ class NetworkManager extends AsyncTask<String, Integer, JSONObject> {
         @Override
         public Bitmap doInBackground(String... urlString){
             Bitmap bmp = null;
+            delegate.nDownloadsStarted.incrementAndGet();
             try{
                     URL url = new URL(urlString[0]);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();

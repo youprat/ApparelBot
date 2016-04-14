@@ -4,4 +4,9 @@
     <string name="inquiry">What are you looking for?</string>
     <string name="title_activity_carousel">Carousel</string>
     <string name="action_settings">Settings</string>
+    <string name="click_to_view_all">Click to view all</string>
+    <string name="title_activity_user">UserActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>
